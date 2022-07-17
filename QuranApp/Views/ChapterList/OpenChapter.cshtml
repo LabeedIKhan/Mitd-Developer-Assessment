@@ -1,0 +1,30 @@
+﻿@model IEnumerable<QuranApp.Models.Verse>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Verses by Chapter</h2>
+        </div>
+    </div>
+    <br />
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Verse
+                </th>
+                <th>BookMark</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var verse in Model)
+            {
+            <tr>
+                <td width="90%">@verse.text</td>
+                <td width="10%"><a asp-controller="ChapterList" asp-action="AddBookmarkList" asp-route-id=@verse.text asp-route-name="name" class="btn btn-primary">Bookmark</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

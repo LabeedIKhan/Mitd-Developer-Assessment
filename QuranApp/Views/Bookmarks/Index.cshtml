@@ -1,0 +1,38 @@
+﻿@model IEnumerable<QuranApp.Models.Bookmarks>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Bookmarked Verses</h2>
+        </div>
+    </div>
+    <br />
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Verse
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count() > 0)
+            {
+            @foreach (var ver in Model)
+            {
+            <tr>
+                <td width="90%">@ver.verse</td>
+                <td width="10%"><a asp-controller="Bookmarks" asp-action="RemoveBookmarks" asp-route-id=@ver.verse asp-route-name="name" class="btn btn-primary">Remove</a></td>
+
+            </tr>
+            }
+            }
+            else
+            {
+                   <p>No Bookamrks Added</p>
+            }
+
+        </tbody>
+    </table>
+</div>
+
